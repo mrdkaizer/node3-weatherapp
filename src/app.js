@@ -1,11 +1,11 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
-const { response } = require('express')
 
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define Paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public') //directory for our static files
@@ -99,6 +99,6 @@ app.get('*', (req, res)=>{
 })
 
 // listen at port 3000
-app.listen(3000, ()=>{
-    console.log('Server is up on port 3000')
+app.listen(port, ()=>{
+    console.log('Server is up on port '+ port)
 })
